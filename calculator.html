@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CALCULATOR</title>
+</head>
+<style>
+    .button button{
+        width: 50px;
+        height: 50px;
+        justify-content: space-evenly;
+    }
+    .box input{
+        width: 260px;
+        height: 50px;
+    }
+    .calculator{
+        border: 1px solid black;
+        width: fit-content;
+        padding: 20px;
+        display: flex;
+        flex-direction:column;
+        margin-left: 600px;
+        margin-top: 70px;
+        background-color:deepskyblue;
+    }
+    h1{
+        margin-top: 120px;
+        color: deepskyblue;
+    }
+    body{
+        background-image:url(https://img.freepik.com/free-vector/mathematics-background-geometric-frame-modern-education-design-vector_53876-156362.jpg?size=626&ext=jpg&ga=GA1.1.1467370036.1725601873&semt=ais_hybrid);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    
+</style>
+<body>
+    <h1 style="margin-left:550px;" >HORROR'S CALCULATOR</h1>
+    <div class="calculator">
+
+    
+    <div class="box">
+       <input type="text" placeholder="0" id="display"><br><br><br>
+    </div>
+   
+    <div class="button">
+        <button onclick="insertvalue('7')">7</button>
+        <button onclick="insertvalue('8')">8</button>
+        <button onclick="insertvalue('9')">9</button>
+        <button onclick="clearentry()">C</button>
+        <button onclick="clearall()">AC</button><br><br>
+        <button onclick="insertvalue('4')">4</button>
+        <button onclick="insertvalue('5')">5</button>
+        <button onclick="insertvalue('6')">6</button>
+        <button onclick="insertvalue('+')">+</button>
+        <button onclick="insertvalue('-')">-</button><br><br>
+        <button onclick="insertvalue('1')">1</button>
+        <button onclick="insertvalue('2')">2</button>
+        <button onclick="insertvalue('3')">3</button>
+        <button onclick="insertvalue('*')">*</button>
+        <button onclick="insertvalue('/')">/</button><br><br>
+        <button onclick="insertvalue('0')">0</button>
+        <button onclick="insertvalue('00')">00</button>
+        <button onclick="insertvalue('.')">.</button>
+        <button onclick="insertvalue('%')">%</button>
+        <button onclick="calculate()">=</button>
+    </div>
+</div>
+   
+</body>
+</html>
+<script>
+    function insertvalue(value){
+        var num1 = document.getElementById('display');
+        num1.value += value;
+    }
+    function clearentry(){
+        var num2 = document.getElementById('display');
+        num2.value = num2.value.slice(0,-1);
+    }
+    function clearall(){
+        var num3 = document.getElementById('display');
+        num3.value = " ";
+    }
+    function calculate(){
+        var num4 = document.getElementById('display');
+        try {
+         num4.value = eval(num4.value.replace('%', '/100'));
+        } catch (error) {
+           num4.value='error' 
+        }
+    }
+    
+</script>
